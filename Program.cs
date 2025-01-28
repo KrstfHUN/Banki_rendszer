@@ -36,7 +36,41 @@
                             Console.WriteLine("Nincs ilyen számla");
                         }
                         break;
-
+                    case 3:
+                        Console.WriteLine("Add meg a számlaszámot:");
+                        string szamlaszamkifizet = Console.ReadLine();
+                        var szamlakifizet = bank.SzamlaKeres(szamlaszamkifizet);
+                        if (szamlakifizet != null)
+                        {
+                            Console.WriteLine("Add meg a kifizetendő összeget:");
+                            int osszegKifizet = Convert.ToInt32(Console.ReadLine());
+                            szamlakifizet.kifizet(osszegKifizet);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Nincs ilyen számla");
+                        }
+                        break;
+                    case 4:
+                        Console.Write("Add meg a számlaszámot: ");
+                        string szamlaszamadatok = Console.ReadLine();
+                        var szamlaadatok = bank.SzamlaKeres(szamlaszamadatok);
+                        if (szamlaadatok != null)
+                        {
+                            Console.WriteLine("A számla adatai:");
+                            Console.Write(szamlaadatok.GetSzamlaAdatok());
+                        }
+                        break ;
+                    case 5:
+                        bank.OsszesSzamlaAdataok();
+                        break;
+                    case 6:
+                        fut = false;
+                        Console.WriteLine("Kilépés...");
+                        break;
+                    default:
+                        Console.WriteLine("Érvénytelen választás!");
+                        break;
                 }
             }
 

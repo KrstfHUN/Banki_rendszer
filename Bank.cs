@@ -13,14 +13,15 @@ namespace Banki_rendszer
         private List<Szamla> szamlak = new List<Szamla>();
         
         //új számla
-        public void SzamlaLetrehozas (string tulaj, int kezdoEgyneleg)
+        public void SzamlaLetrehozas(string tulaj, int kezdoEgyneleg)
         {
             Szamla ujSZamla = new Szamla(tulaj, kezdoEgyneleg);
+            szamlak.Add(ujSZamla);
             Console.WriteLine($"\nÚj számla létrehozva! {ujSZamla.GetSzamlaAdatok()}");
         }
 
         //számla keresés
-        public Szamla SzamlaKeres (string szamlaszam)
+        public Szamla SzamlaKeres(string szamlaszam)
         {
             foreach (var szamla in szamlak)
             {
